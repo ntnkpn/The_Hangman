@@ -93,8 +93,8 @@ def play(word):
 
     print('Приветсвую в Виселице 1.0!')
     while True and tries > 0:
-        print(f'Количество оставшихся попыток: {tries} {display_hangman(tries)}')
-        print(f'Загаданное слово: {word_completion}')
+        print(f'Количество оставшихся попыток: {tries}')
+        # print(f'Загаданное слово: {word_completion}')
         print('Введите букву!')
         user_char = input().upper()
         if len(user_char) == 1 and user_char.isalpha():
@@ -106,6 +106,7 @@ def play(word):
                 print(f'Буквы {user_char} нет в слове')
                 tries -= 1
                 guessed_letters.append(user_char)  # Добавляет букву в список названных
+                display_hangman(tries)
 
             elif user_char in word:
                 print(f'Буква {user_char} имеется в слове!')
@@ -127,10 +128,6 @@ def play(word):
         print(f'Молодец! Вы отгадали слово правильно: \n{word}')
     else:
         print(f'Тоби пизда. Слово было {word}')
-
-
-
-
 
 
 play(get_word())
